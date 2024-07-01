@@ -1,4 +1,13 @@
 iframe {
-    height: 400px;
+    max-height: 500px;
+
+    object-fit: cover;
+}
+img {
+    max-height: 600px;
+    object-fit: cover;
+}
+video {
+    max-height: 500px;
     object-fit: cover;
 }
