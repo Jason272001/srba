@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logob from "../../logob.jpeg";
 import { AiOutlineMenuUnfold, AiOutlineClose } from "react-icons/ai";
 import { FaHandshake } from "react-icons/fa";
-
+import alogo from "../../logoA.mp4";
 const Nav = () => {
   const [showNav, setShowNav] = useState(false);
 
@@ -12,39 +12,47 @@ const Nav = () => {
 
   return (
     <div className="fixed w-full z-10">
-      <div className="flex flex-col bg-white shadow-md">
-        <div className="flex flex-row justify-between p-4 md:px-32 px-5 bg-white shadow-[0_3px_105px_rgba(0,0,0,0.3)]">
+      <div className="flex flex-col bg-black shadow-md">
+        <div className="flex flex-row justify-between p-4 md:px-32 px-5 bg-black shadow-[0_3px_105px_rgba(0,0,0,0.3)]">
           <div className="flex flex-row items-center cursor-pointer px-0">
-            <img alt="logo" src={logob} className="h-16 w-16 rounded-full" />
+            <video className="h-24 w-32 " loop muted autoPlay>
+              <source src={alogo} type="video/mp4" />
+            </video>
+            s
           </div>
           <nav className="hidden md:flex flex-row items-center text-lg font-medium gap-8 px-5">
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               Home
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               About Us
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               Membership
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               Events
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               Community
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="#" className="text-white hover:text-gray-400">
               News & Updates
-            </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
-              More
             </a>
           </nav>
           <div className="md:hidden flex items-center">
             {showNav ? (
-              <AiOutlineClose onClick={toggleNav} size={25} />
+              <AiOutlineClose
+                onClick={toggleNav}
+                size={25}
+                className="text-white"
+              />
             ) : (
-              <AiOutlineMenuUnfold onClick={toggleNav} size={25} />
+              <AiOutlineMenuUnfold
+                onClick={toggleNav}
+                size={25}
+                className="text-white"
+              />
             )}
           </div>
         </div>

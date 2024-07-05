@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "./Banner.css"; // Import the CSS file
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import "object-fit-polyfill";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 const Banner = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Auto slide functionality
-    const autoSlide = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === data.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change slide every 3 seconds
-
-    return () => clearInterval(autoSlide); // Cleanup interval on component unmount
-  }, [data]);
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000); // Change slide every 5 seconds
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -30,58 +24,67 @@ const Banner = ({ data }) => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden h-screen flex  justify-center">
-      <div
-        className="flex transition-transform duration-500 ease-in-out h-full w-full"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {data.map((slide, index) => (
-          <div
-            key={index}
-            className="w-full h-full flex-shrink-0 flex  justify-center"
+    <div className="relative w-full h-full py-20 flex flex-col justify-center items-center gap-12">
+      <div className="flex flex-col items-center gap-8">
+        <div className="text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
+            Welcome To Story Road Better Events Ever
+          </h1>
+          <p className="text-base md:text-xl text-gray-600 mt-2">
+            Lorem ipsum dolar sit amet constreteur
+          </p>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <button
+            onClick={prevSlide}
+            className="w-12 h-12 md:w-16 md:h-16 flex justify-center items-center cursor-pointer"
           >
-            {slide.mediaType === "links" && (
-              <iframe
-                title={`Slide ${index + 1}`}
-                src={slide.url}
-                className="w-full h-full"
-                frameBorder="0"
-                allowFullScreen
-                style={{ objectFit: "cover" }}
-              ></iframe>
-            )}
-            {slide.mediaType === "image" && (
-              <div className="w-full h-4/6 flex items-center justify-center bg-black bg-opacity-100 mx-auto">
-                <img
-                  src={slide.content.asset.url}
-                  alt={`Slide ${index + 1}`}
-                  className="max-w-full max-h-full object-contain"
-                />
+            <FaCaretLeft size={45} />
+          </button>
+          <div className="w-full max-w-lg md:max-w-4xl h-auto flex justify-center items-center">
+            {data.map((slide, index) => (
+              <div
+                key={index}
+                className={`w-full h-full flex-shrink-0 transition-transform duration-500 ease-in-out ${
+                  index === currentIndex ? "block" : "hidden"
+                }`}
+              >
+                {slide.mediaType === "links" && (
+                  <iframe
+                    title={`Slide ${index + 1}`}
+                    src={slide.url}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ objectFit: "cover" }}
+                  ></iframe>
+                )}
+                {slide.mediaType === "image" && (
+                  <img
+                    src={slide.content.asset.url}
+                    alt={`Slide ${index + 1}`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                )}
+                {slide.mediaType === "video" && (
+                  <video
+                    controls
+                    src={slide.content.asset.url}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  ></video>
+                )}
               </div>
-            )}
-            {slide.mediaType === "video" && (
-              <video
-                controls
-                src={slide.content.asset.url}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              ></video>
-            )}
+            ))}
           </div>
-        ))}
+          <button
+            onClick={nextSlide}
+            className="w-12 h-12 md:w-16 md:h-16 flex justify-center items-center cursor-pointer "
+          >
+            <FaCaretRight size={45} />
+          </button>
+        </div>
       </div>
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/3 left-4 transform -translate-y-1/2 hover:text-6xl text-white  rounded-full text-5xl font-thin"
-      >
-        <FaAngleLeft />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/3 right-4 transform -translate-y-1/2 hover:text-6xl text-white  rounded-full text-5xl  font-thin"
-      >
-        <FaAngleRight />
-      </button>
     </div>
   );
 };
