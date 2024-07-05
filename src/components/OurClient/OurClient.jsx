@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./style.css";
 
-const Slider = () => {
+const OurHappyClients = () => {
   const testimonials = [
     {
       text: "Lorem ipsum dolor sit amet consectetur. Condimentum eget vitae ligula sed urna sit sagittis interdum a. Blandit mattis mattis lobortis orci. Facilisis dui sagittis tempor egestas pellentesque eu maecenas. Risus lectus nisl.",
@@ -31,7 +31,7 @@ const Slider = () => {
         x: {
           repeat: Infinity,
           repeatType: "loop",
-          duration: 18,
+          duration: 20,
           ease: "linear",
         },
       },
@@ -83,4 +83,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default OurHappyClients;
