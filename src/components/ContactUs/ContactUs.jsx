@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import bgImage from "./cu.jpg"; // Ensure the correct path to your image file
-
+import emailjs from "@emailjs/browser";
 const ContactForm = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_i5wogon", "template_t5toh6b", form.current, {
+        publicKey: "mKY2Apvz53sw_AUN3",
+      })
+      .then(
+        () => {
+          window.alert("SUCCESS!");
+        },
+        (error) => {
+          window.alert("FAILED!");
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <div
       className="w-full h-full pt-28 pb-44 px-6 sm:px-12 md:px-20 lg:px-32 bg-opacity-40 flex flex-col items-center"
@@ -23,25 +43,33 @@ const ContactForm = () => {
             Contact Form:
           </div>
         </div>
-        <div className="w-full md:w-1/2 p-6 sm:p-8 bg-white border border-gray-300 flex flex-col gap-6 sm:gap-8">
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="w-full md:w-1/2 p-6 sm:p-8 bg-white border border-gray-300 flex flex-col gap-6 sm:gap-8"
+        >
           <div className="flex flex-col gap-2">
             <label className="text-gray-900 text-lg md:text-xl font-normal">
-              First Name
+              Subject
             </label>
             <input
               type="text"
+              name="subject"
               className="p-4 border border-gray-300"
-              placeholder="Your first name"
+              placeholder="Your full name"
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-gray-900 text-lg md:text-xl font-normal">
-              Last Name
+              Full Name
             </label>
             <input
               type="text"
+              name="user_name"
               className="p-4 border border-gray-300"
-              placeholder="Your last name"
+              placeholder="Your full name"
+              required
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -50,7 +78,9 @@ const ContactForm = () => {
             </label>
             <input
               type="email"
+              name="user_email"
               className="p-4 border border-gray-300"
+              required
               placeholder="Your email"
             />
           </div>
@@ -61,6 +91,8 @@ const ContactForm = () => {
             <textarea
               className="p-4 border border-gray-300"
               placeholder="Your message"
+              required
+              name="message"
             ></textarea>
           </div>
           <div className="flex justify-center mt-4">
@@ -68,7 +100,7 @@ const ContactForm = () => {
               Submit
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
