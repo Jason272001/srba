@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Navbar from "../components/Nav/Nav";
 import Home from "../container/Home/Home";
+import Email from "../components/Email/Email";
 import { client } from "../data/client";
 import {
   bannerquery,
@@ -68,6 +69,10 @@ const App = () => {
               sponsorData={sponsorData}
             />
           }
+        />
+        <Route
+          path="team/-2024/user/-srba/email_subscription"
+          element={<Email />}
         />
       </Routes>
       <Footer />
