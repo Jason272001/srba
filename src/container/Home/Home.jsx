@@ -2,43 +2,40 @@ import React from "react";
 import Banner from "../../components/Banner/Banner";
 import OurStory from "../../components/OurStory/OurStory";
 import OurPartners from "../../components/OurPartners/OurPartners";
-import OurCommunity from "../../components/OurCommunity/OurCommunity";
+import OurProject from "../../components/OurProject/OurProject";
 import UpcomingEvent from "../../components/UCE/UpcomingEvent";
 import MembershipBenefits from "../../components/Membership/MembershipBenefits";
 import OurHappyClients from "../../components/OurClient/OurClient";
-
 import ContactUs from "../../components/ContactUs/ContactUs";
 
-const Home = (props) => {
+const Home = ({ banner, logoteam, project, membershipData, sponsorData }) => {
   return (
     <div className="pt-24">
-      <Banner data={props.banner} />
-      <session>
+      <Banner data={banner} />
+      <section>
         <OurStory />
-      </session>
-      <session>
-        <OurPartners />
-      </session>
-
-      <session>
-        <OurCommunity />
-      </session>
-
-      <session>
+      </section>
+      <section>
+        <OurPartners data={logoteam} />
+      </section>
+      <section>
+        <OurProject data={project} />
+      </section>
+      <section>
         <UpcomingEvent />
-      </session>
-
-      <session>
-        <MembershipBenefits />
-      </session>
-
-      <session>
+      </section>
+      <section>
+        <MembershipBenefits
+          membershipData={membershipData}
+          sponsorData={sponsorData}
+        />
+      </section>
+      <section>
         <OurHappyClients />
-      </session>
-
-      <session>
+      </section>
+      <section>
         <ContactUs />
-      </session>
+      </section>
     </div>
   );
 };

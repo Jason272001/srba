@@ -8,7 +8,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_i5wogon", "template_t5toh6b", form.current, {
+      .sendForm("service_i5wogon", "template_vcccjbb", form.current, {
         publicKey: "mKY2Apvz53sw_AUN3",
       })
       .then(

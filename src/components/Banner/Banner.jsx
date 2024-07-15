@@ -28,10 +28,14 @@ const Banner = ({ data }) => {
       <div className="flex flex-col items-center gap-8">
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
-            Welcome To Story Road Better Events Ever
+            S.R.B.A
           </h1>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-800">
+            {" "}
+            Story Road Business Association
+          </h2>
           <p className="text-base md:text-xl text-gray-600 mt-2">
-            Lorem ipsum dolar sit amet constreteur
+            A 501(c)(3) organization sponsored by the City of San Jose
           </p>
         </div>
         <div className="flex items-center justify-center gap-4">

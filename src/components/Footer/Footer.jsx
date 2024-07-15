@@ -20,19 +20,21 @@ const Footer = () => {
           <img className="h-36" src={logo} alt="Logo" />
           <div className="text-white text-md font-medium">Contacts</div>
           <div className="text-gray-300 text-base font-normal opacity-60">
-            Location
+            Office:{" "}
+            <a
+              className="text-white  hover:text-blue-500 underline font-normal"
+              href=""
+            ></a>
           </div>
           <div className="text-gray-300 text-base font-normal opacity-60">
             Phone:{" "}
             <a
               className="text-white  hover:text-blue-500 underline font-normal"
-              href="tel:+1737-786-6044"
-            >
-              +1737-786-6044
-            </a>
+              href="tel:"
+            ></a>
           </div>
           <div className="text-gray-300 text-base font-normal opacity-60">
-            Email:{" "}
+            Contact Us:{" "}
             <a
               className="text-white  hover:text-blue-500 underline font-normal"
               href="mailto:info@srba.co"

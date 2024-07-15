@@ -42,7 +42,7 @@ const OurHappyClients = () => {
     <div className="w-full h-full p-5 flex flex-col pt-32 pb-40 justify-center items-center gap-10">
       <div className="w-full h-['30rem'] px-4 md:px-32 flex flex-col justify-center items-center gap-8 md:gap-16">
         <div className="text-center text-[#262626] text-3xl font-semibold break-words">
-          Our Happy Clients
+          Our Story
         </div>
         <div className="overflow-hidden w-full h-72">
           <motion.div
