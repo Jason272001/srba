@@ -12,9 +12,17 @@ import {
 } from "../data/data";
 import Footer from "../components/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
+import AboutUs from "./AboutUs/AboutUs";
+import Event from "./Event/Event";
 
 const App = () => {
   const [banner, setBanner] = useState([]);
+  const [aboutBanner, setaboutBanner] = useState([]);
+  const [memberBanner, setmemberBanner] = useState([]);
+  const [eventBanner, seteventBanner] = useState([]);
+  const [communityBanner, setcommunityBanner] = useState([]);
+  const [newsBanner, setnewsBanner] = useState([]);
+
   const [logoteam, setLogoteam] = useState([]);
   const [project, setProject] = useState([]);
   const [membershipData, setMembershipData] = useState([]);
@@ -25,7 +33,38 @@ const App = () => {
       try {
         const bannerData = await bannerquery();
         client.fetch(bannerData).then((data) => {
-          setBanner(data);
+          setBanner(
+            data.filter(
+              (item) => item.category === "Home" || item.category === "All"
+            )
+          );
+
+          setaboutBanner(
+            data.filter(
+              (item) => item.category === "About" || item.category === "All"
+            )
+          );
+
+          setmemberBanner(
+            data.filter(
+              (item) => item.category === "Member" || item.category === "All"
+            )
+          );
+          seteventBanner(
+            data.filter(
+              (item) => item.category === "Event" || item.category === "All"
+            )
+          );
+          setcommunityBanner(
+            data.filter(
+              (item) => item.category === "Community" || item.category === "All"
+            )
+          );
+          setnewsBanner(
+            data.filter(
+              (item) => item.category === "News" || item.category === "All"
+            )
+          );
         });
 
         const logoteamData = await logoteamquery();
@@ -71,9 +110,13 @@ const App = () => {
           }
         />
         <Route
-          path="team/-2024/user/-srba/email_subscription"
+          path="team-2024-user-srbaemail-subscription"
           element={<Email />}
         />
+
+        <Route path="about" element={<AboutUs aboutBanner={aboutBanner} />} />
+
+        <Route path="events" element={<Event eventBanner={eventBanner} />} />
       </Routes>
       <Footer />
     </div>

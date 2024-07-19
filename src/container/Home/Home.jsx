@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../components/Banner/Banner";
-import OurStory from "../../components/OurStory/OurStory";
+import MAboutUs from "../../components/AboutUs/AboutUs";
 import OurPartners from "../../components/OurPartners/OurPartners";
 import OurProject from "../../components/OurProject/OurProject";
 import UpcomingEvent from "../../components/UCE/UpcomingEvent";
@@ -12,8 +12,9 @@ const Home = ({ banner, logoteam, project, membershipData, sponsorData }) => {
   return (
     <div className="pt-24">
       <Banner data={banner} />
+
       <section>
-        <OurStory />
+        <MAboutUs />
       </section>
       <section>
         <OurPartners data={logoteam} />

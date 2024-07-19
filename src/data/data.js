@@ -1,13 +1,14 @@
 export const bannerquery = () => {
-  return `*[_type == "banner"]{
+  return `*[_type == "banner"] | order(displayOrder asc) {
     content{
       asset->{
         url
       }
     },
     mediaType,
+    category,
     _createdAt
-  } | order(displayorder asc)`;
+  }`;
 };
 
 export const logoteamquery = () => {

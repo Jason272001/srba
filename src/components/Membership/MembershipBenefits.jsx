@@ -1,9 +1,6 @@
 import React from "react";
 
 const MembershipBenefits = ({ membershipData = [], sponsorData = [] }) => {
-  console.log("Membership Data:", membershipData); // Debugging line
-  console.log("Sponsor Data:", sponsorData); // Debugging line
-
   const renderPackages = (packages) =>
     packages.map((pkg, index) => (
       <div

@@ -22,7 +22,7 @@ const Nav = () => {
   };
 
   return (
-    <div className="fixed w-full z-10">
+    <div className="fixed w-full z-30 pt-0">
       <div className="flex flex-col bg-black shadow-md">
         <div className="flex flex-row justify-between  md:px-32 px-5 bg-black shadow-[0_3px_105px_rgba(0,0,0,0.3)]">
           <div className="flex flex-row items-center cursor-pointer px-0">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const OurStory = () => {
+const MAboutUs = () => {
   return (
     <div className="w-full h-full pt-16 pb-24 px-8 md:px-32 bg-[#050614] flex flex-col justify-center items-center">
       <div className="flex flex-col justify-center items-center gap-8 w-full">
@@ -49,9 +49,9 @@ const OurStory = () => {
                   What
                 </div>
                 <div className="text-[rgba(218,210,210,0.80)] text-lg font-normal group-hover:text-white transition-colors">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Faucibus in libero risus semper habitant arcu eget. Et integer
-                  facilisi eget.
+                  To drive economic vitality and district safety, cleanliness,
+                  and beautification in the Story Rd. geographical area in the
+                  City of San Jose, CA.
                 </div>
               </div>
               <img
@@ -60,14 +60,16 @@ const OurStory = () => {
                 className="w-full h-[314px]"
               />
             </div>
-          </div>
-          <div className="flex justify-center items-center w-[281px] h-[60px] bg-[#676666] border border-gray-500 p-4 text-white text-lg font-semibold">
-            Learn More
-          </div>
+          </div>{" "}
+          <a href="/about">
+            <div className="flex justify-center items-center w-[281px] h-[60px] bg-[#676666] border border-gray-500 p-4 text-white text-lg font-semibold">
+              Learn More
+            </div>
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export default OurStory;
+export default MAboutUs;
