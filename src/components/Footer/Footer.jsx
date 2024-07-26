@@ -100,16 +100,24 @@ const Footer = () => {
           <div className="text-white text-lg font-medium">Connect with us</div>
           <div className="flex gap-7">
             <div className="relative w-12 h-12">
-              <img src={fb} alt="Facebook" className="w-9 h-9" />
+              <a href="https://www.facebook.com/profile.php?id=61563039988">
+                <img src={fb} alt="Facebook" className="w-9 h-9" />
+              </a>
             </div>
             <div className="relative w-12 h-12">
-              <img src={yt} alt="YouTube" className="w-9 h-9" />
+              <a href="https://www.youtube.com/@S.R.B.A-j9b">
+                <img src={yt} alt="YouTube" className="w-9 h-9" />
+              </a>
             </div>
             <div className="relative w-12 h-12">
-              <img src={ig} alt="Instagram" className="w-9 h-9" />
+              <a href="https://www.instagram.com/storyroad07/">
+                <img src={ig} alt="Instagram" className="w-9 h-9" />
+              </a>
             </div>
             <div className="relative w-12 h-12">
-              <img src={ld} alt="LinkedIn" className="w-9 h-9" />
+              <a href="https://linkedin.com/company/s-r-b-a">
+                <img src={ld} alt="LinkedIn" className="w-9 h-9" />
+              </a>
             </div>
           </div>
         </div>

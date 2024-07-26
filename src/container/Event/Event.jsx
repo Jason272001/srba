@@ -45,11 +45,13 @@ const Event = ({ eventBanner }) => {
   return (
     <div>
       <MBanner data={eventBanner} />
-      <div className="w-full bg-gray-00 py-10">
-        <div className="max-w-7xl mx-auto  py-10 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-black mb-8">
-            Our Events
-          </h2>
+      <div
+        className="w-full py-16"
+        style={{
+          background: "linear-gradient(to bottom, black 15%, white 10%)",
+        }}
+      >
+        <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
           <div className="space-y-10">
             {events.map((event, index) => (
               <div

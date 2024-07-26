@@ -114,7 +114,10 @@ const App = () => {
           element={<Email />}
         />
 
-        <Route path="about" element={<AboutUs aboutBanner={aboutBanner} />} />
+        <Route
+          path="about"
+          element={<AboutUs aboutBanner={aboutBanner} project={project} />}
+        />
 
         <Route path="events" element={<Event eventBanner={eventBanner} />} />
       </Routes>
